@@ -6,7 +6,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :comment, presence: true
   validates :age, presence: true
-  
+  has_one_attached :image
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
 end
