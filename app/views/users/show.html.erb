@@ -16,5 +16,13 @@
     </div>
 
     <div>一言：<%=@user.comment%></div>
+    <% if user_signed_in? %>
+ <% if @user.liked_by?(current_user) %>
+      <%=link_to "dislike", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
+    <% else %>
+      <%=link_to "like", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :post } %>
+    <% end %>
+        <% end%>
+
 
     </div>

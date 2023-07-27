@@ -14,6 +14,11 @@ class User < ApplicationRecord
   has_many :liked_relationships, class_name: "Relationship", foreign_key: :liked_id
   has_many :likeds, through: :liked_relationships, source: :liker
 
+  def liked_by?(user)
+    liked =  liked_relationships.find_by(like_id: user.id)
+    return liked.present?
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
 end
