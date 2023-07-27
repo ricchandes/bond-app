@@ -1,0 +1,40 @@
+ .title{
+  display: flex;
+  justify-content: center;
+ }
+ h1{
+  font-family: 'Train One', cursive;
+}
+
+.member{
+  display: flex;
+  margin: 30px 32px;
+
+}
+
+.profile{
+  width: 30vw;
+  font-size: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.info{
+  display: flex;
+  justify-content: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+
+}
+
+.photo{
+  display: flex;
+  justify-content: center;
+}
+
+h2{
+  color: #CCFF99;
+}
