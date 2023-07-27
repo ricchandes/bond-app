@@ -1,5 +1,5 @@
     
-    <%=@user.name%>さんのプロフィール
+    <h2><%=@user.name%>さんのプロフィール</h2>
     
     <div class = "profile">
     <div class = "info">
@@ -13,8 +13,8 @@
      <%else %>
     <%= image_tag "dog.png"  %>
     <%end%>
-        </div>
+    </div>
 
-    <div><%=@user.comment%></div>
+    <div>一言：<%=@user.comment%></div>
 
     </div>
