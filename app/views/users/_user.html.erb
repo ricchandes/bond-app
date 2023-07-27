@@ -1,8 +1,8 @@
     <div class = "profile">
     <div class = "info">
-    <%= user.name%>  
+    <%= link_to user.name, user_path(user.id) %>  
     (<%= user.age %>)<br/>
-    <%= user.status.name%>  
+    <%=user.status.name%>  
     </div>
      <div class="photo">
     <% if user.image.attached?%>
