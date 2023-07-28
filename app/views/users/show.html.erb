@@ -1,28 +1,61 @@
-    
-    <h2><%=@user.name%>さんのプロフィール</h2>
-    
-    <div class = "profile">
-    <div class = "info">
-    <%= link_to @user.name, user_path(@user.id) %>  
-    (<%= @user.age %>)<br/>
-    <%=@user.status.name%>  
-    </div>
-     <div class="photo">
+
+<div class="main">
+
+      <h2 class="page-heading">
+        <%= "#{@user.name}さんのプロフィール"%>
+      </h2>
+      <div class="profile">
+    <div class="photo">
     <% if @user.image.attached?%>
-    <%= image_tag @user.image.variant(resize: '200x200')  %>
-     <%else %>
+    <%= image_tag @user.image.variant(resize: '400x400')  %>
+    <%else %>
     <%= image_tag "dog.png"  %>
     <%end%>
     </div>
 
-    <div>一言：<%=@user.comment%></div>
-    <% if user_signed_in? %>
- <% if @user.liked_by?(current_user) %>
-      <%=link_to "dislike", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
+      <table class="table">
+     <tbody>
+          <tr>
+            <th class="table__col1">名前</th>
+            <td class="table__col2"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">年齢</th>
+            <td class="table__col2"><%= @user.age %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">一言</th>
+            <td class="table__col2"><%= @user.comment %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">近況</th>
+            <td class="table__col2"><%= @user.status.name %></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="btnfield">
+     <%if  user_signed_in?  %>
+    <% if @user.liked_by?(current_user) %>
+    <div class="buttonNeumorphism">
+    <%=link_to "💔", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
+   </div>
     <% else %>
-      <%=link_to "like", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :post } %>
+    <div class="buttonNeumorphism">
+    <%=link_to "💗", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :post } %>
+      </div>
+
     <% end %>
-        <% end%>
+
+ <% if current_user.liked_by?(@user)%>
+ <%=link_to "✉", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
+<% else %>
+
+ <% end%>
+ <% end%>
 
 
-    </div>
+
+
+    
+</div>

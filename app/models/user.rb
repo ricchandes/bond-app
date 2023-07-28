@@ -19,6 +19,7 @@ class User < ApplicationRecord
     return liked.present?
   end
 
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
 end

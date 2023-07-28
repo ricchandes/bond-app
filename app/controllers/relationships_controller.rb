@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
   def create
     like = current_user.like_relationships.new(liked_id: params[:user_id])
     like.save
@@ -10,4 +11,5 @@ class RelationshipsController < ApplicationController
     like.destroy
     redirect_to root_path
   end
+
 end
