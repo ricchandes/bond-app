@@ -35,27 +35,21 @@
       </table>
       </div>
       <div class="btnfield">
-     <%if  user_signed_in?  %>
-    <% if @user.liked_by?(current_user) %>
-    <div class="buttonNeumorphism">
-    <%=link_to "💔", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
-   </div>
-    <% else %>
-    <div class="buttonNeumorphism">
-    <%=link_to "💗", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :post } %>
-      </div>
+<%if  user_signed_in? %>
+<% if @user.liked_by?(current_user) && current_user.liked_by?(@user) %>
+<div class="buttonNeumorphism">
+<%=link_to "✉", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
+</div>
+<% elsif @user.liked_by?(current_user) %>
+<div class="buttonNeumorphism">
 
-    <% end %>
-
- <% if current_user.liked_by?(@user)%>
- <%=link_to "✉", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
+<%=link_to "💔", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
+</div>
 <% else %>
-
+<div class="buttonNeumorphism">
+<%=link_to "💗", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :post } %>
+</div>
  <% end%>
  <% end%>
-
-
-
-
     
 </div>
