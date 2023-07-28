@@ -36,5 +36,88 @@
 }
 
 h2{
-  color: #CCFF99;
+  color:brack;
+}
+.mypage{
+  font-size: 20px;
+  font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+.mytitle{
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-heading{
+  display: flex;
+  justify-content: center;
+}
+.table{
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  width: 50%;
+  margin-top:30px;
+
+}
+
+.table__col1{
+  text-align: left;
+  font-weight: bold;
+  background: lightcyan;
+  border-collapse: collapse;
+  border: 1px solid grey;
+  width: 30%;
+  padding: 8px;
+  text-align: center;
+}
+
+.table__col2{
+  text-align: left;
+  border: 1px solid grey;
+
+  border-collapse: collapse;
+  width: 70%;
+  padding: 16px 8px;
+}
+.user__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile{
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 161px);
+width:100vw;
+}
+
+/* ボタンのスタイル */
+.buttonNeumorphism {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  aspect-ratio: 1;
+  color: #222;
+  background-color: lightcyan;
+  border-radius: 50%;
+  box-shadow: -4px -4px 8px #fff, 4px 4px 8px rgb(0 0 0 / 24%);
+}
+.btnfield{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.btn{
+  font-size: 40px;
+  text-decoration: none;
+  color:gray ;
+
 }

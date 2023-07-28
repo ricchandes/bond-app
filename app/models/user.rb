@@ -8,6 +8,17 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :comment, presence: true
   validates :age, presence: true
+  has_many :like_relationships, class_name: "Relationship", foreign_key: :like_id
+  has_many :likers, through: :like_relationships, source: :liked
+
+  has_many :liked_relationships, class_name: "Relationship", foreign_key: :liked_id
+  has_many :likeds, through: :liked_relationships, source: :liker
+
+  def liked_by?(user)
+    liked =  liked_relationships.find_by(like_id: user.id)
+    return liked.present?
+  end
+
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
