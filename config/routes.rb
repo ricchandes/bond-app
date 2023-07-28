@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root to:"users#index"
   resources :users, only: [:edit, :update, :show] do
     resource :relationships, only: [:create, :destroy]
+    resource :rooms, only: [:create]
+
   end
 end
