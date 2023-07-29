@@ -1,0 +1,7 @@
+ <%= form_with model: @room_message,url:  user_rooms_path, local: true do |f| %>
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+     <input name="room[user_ids][]" type="hidden" value=<%= params[:user_id] %>>
+    <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+    <%= f.submit "commit" %>
+    <% end %>
