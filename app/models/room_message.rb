@@ -9,6 +9,6 @@ class RoomMessage
 
   def save
     room = Room.create(id:, user_ids: [])
-    message.create(text:,  room_id: room.id, user_id: current_user.id)
+    message.create(text:, room_id: room.id, user_id: current_user.id)
   end
 end

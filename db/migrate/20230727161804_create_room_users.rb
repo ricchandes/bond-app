@@ -1,9 +1,10 @@
 class CreateRoomUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :room_users do |t|
-      t.references :room, null: false, foreign_key: true
-      t.references :user, null: false, foreign_key: true
+      t.integer :user1_id
+      t.integer :user2_id
       t.timestamps
     end
+    add_index :room_users, [:user1_id, :user2_id], unique: true
   end
 end

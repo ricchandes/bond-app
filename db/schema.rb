@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_161753) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_161805) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,11 +41,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_161753) do
 
   create_table "messages", charset: "utf8", force: :cascade do |t|
     t.string "text"
-    t.bigint "room_id", null: false
+    t.bigint "room_user_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["room_user_id"], name: "index_messages_on_room_user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -58,9 +58,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_161753) do
     t.index ["liked_id"], name: "index_relationships_on_liked_id"
   end
 
-  create_table "rooms", charset: "utf8", force: :cascade do |t|
+  create_table "room_users", charset: "utf8", force: :cascade do |t|
+    t.integer "user1_id"
+    t.integer "user2_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user1_id", "user2_id"], name: "index_room_users_on_user1_id_and_user2_id", unique: true
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -81,6 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_161753) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "room_users"
   add_foreign_key "messages", "users"
 end
