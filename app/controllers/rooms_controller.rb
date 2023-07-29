@@ -1,11 +1,8 @@
 class RoomsController < ApplicationController
   def create
-    @room = Room.new(room_params)
-    if @room.save
-      redirect_to root_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    room = Room.new
+    room.create(room_params)
+    redirect_to root_path
   end
 
 
