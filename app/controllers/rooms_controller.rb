@@ -1,7 +1,17 @@
 class RoomsController < ApplicationController
   def create
-    binding.pry
-    Room.create(user_ids: pramas[:user_id])
+    @room = Room.new(room_params)
+    if @room.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+
+  private
+  def room_params
+    params.require(:room).permit(user_ids: [])
   end
 
 end
