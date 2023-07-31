@@ -1,3 +1,8 @@
-
-<%= current_user.name%>
+<div class="message-box">
+<div class="sendname"><%= current_user.name%></div>
+<%= message.created_at.strftime("%m月%d日 %H:%M") %>
+<div class="balloon1">
 <%= message.text %>
+</div>
+<br/>
+</div>
