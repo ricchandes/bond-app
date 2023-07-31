@@ -1,6 +1,9 @@
-class RoomsController < ApplicationController
+class RoomUsersController < ApplicationController
+
+
   def create
     @room_message = RoomMessage.new(room_params)
+    binding
     if @room_message.valid?
       @room_message.save
       redirect_to root_path
@@ -13,6 +16,7 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room_message).permit(:text, user_ids: [])
+    params.require(:room_message).permit(:text, user1_id:, user2_id:)
   end
+
 end

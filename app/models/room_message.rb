@@ -1,14 +1,13 @@
 class RoomMessage
   include ActiveModel::Model
-  attr_accessor :user_id, :text, :room_id
+  attr_accessor :user1_id, :user2_id, :text, :room_user_id
   with_options presence: true do
-    validates :user_id
-    validates :room_id
+    validates :room_user_id
     validates :text
     end
 
   def save
-    room = Room.create(id:, user_ids: [])
-    message.create(text:, room_id: room.id, user_id: current_user.id)
+    room_user = RoomUser.create(user1_id:, user2_id:)
+    message.create(text:, room_user_id: room_user.id, user_id: current_user.id)
   end
 end
