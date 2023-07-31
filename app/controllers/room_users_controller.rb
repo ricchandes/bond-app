@@ -8,12 +8,13 @@ end
     @room_message = RoomMessage.new(room_params)
     if @room_message.valid?
       @room_message.save
-      redirect_to root_path
+      redirect_to  user_room_users_messages(params[:room_user_id])
     else
       render :new, status: :unprocessable_entity
     end
-
   end
+
+
 
 
   private
