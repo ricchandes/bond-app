@@ -7,7 +7,7 @@ end
   def create
     @room_user = RoomUser.create(room_params)
     if  @room_user.save
-      redirect_to  user_room_users_messages_path
+      redirect_to  new_user_room_users_messages_path
     else
       render :new, status: :unprocessable_entity
     end
