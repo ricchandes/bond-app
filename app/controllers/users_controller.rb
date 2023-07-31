@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def show
   @user = User.find(params[:id])
-  @room_users = Room
-  @room_user = RoomUser.new
+  @room = Room.new
   end
 
   def edit

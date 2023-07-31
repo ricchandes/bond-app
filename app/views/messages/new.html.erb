@@ -1,6 +1,5 @@
  <div  class="messages">
  <div class="profile">
-     <%= image_tag @user.image.variant(resize: '200x200')  %>
 
 </div>
 
@@ -9,7 +8,7 @@
 </div>
 
  <div class="message-form">
-<%= form_with model: @message,url: user_room_users_messages_path, local: true do |f| %>
+<%= form_with model: @message,url: room_messages_path(@room.id), local: true do |f| %>
     <%= f.label  "メッセージを送る" %><br />
     <%= f.text_field :text %>
     <%= f.submit "🍃" %>
