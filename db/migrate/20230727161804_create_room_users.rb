@@ -5,6 +5,5 @@ class CreateRoomUsers < ActiveRecord::Migration[7.0]
       t.integer :user2_id
       t.timestamps
     end
-    add_index :room_users, [:user1_id, :user2_id], unique: true
   end
 end

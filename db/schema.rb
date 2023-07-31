@@ -63,7 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_161805) do
     t.integer "user2_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user1_id", "user2_id"], name: "index_room_users_on_user1_id_and_user2_id", unique: true
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
