@@ -38,8 +38,13 @@
 <%if  user_signed_in? %>
 <% if @user.liked_by?(current_user) && current_user.liked_by?(@user) %>
 <div class="buttonNeumorphism">
-<%=link_to "✉",  new_user_room_users_path(@user.id),class: "btn", id: "message-btn" %>
+<%= form_with model: @room_users,url:  user_room_users_path(@user), local: true do |f| %>
+    <input name=room_user[user1_id] type="hidden" value=<%= params[:id] %>>
+    <input name=room_user[user2_id] type="hidden" value=<%= current_user.id %>>
+    <%= f.submit "✉", class: "btn" %>
 </div>
+ <% end%>
+
 <% elsif @user.liked_by?(current_user) %>
 <div class="buttonNeumorphism">
 <%=link_to "💔", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
