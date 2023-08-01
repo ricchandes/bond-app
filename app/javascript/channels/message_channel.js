@@ -2,8 +2,12 @@ import consumer from "./consumer"
 
 if(location.pathname.match(/\/rooms\/\d+\/messages\/new/)){
 
+  consumer.subscriptions.create({
+    channel: "MessageChannel",
+    room_id: location.pathname.match(/\d+/)[0]
+  }, {
 
-  consumer.subscriptions.create("MessageChannel", {
+
   connected() {
     // Called when the subscription is ready for use on the server
   },

@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
      name = whose_message?(@message)
-     ActionCable.server.broadcast "message_channel", {message: @message, name: name}
+     MessageChannel.broadcast_to @room,  {message: @message, name: name}
     else
       render :new, status: :unprocessable_entity
     end
