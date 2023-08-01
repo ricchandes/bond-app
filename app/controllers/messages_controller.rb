@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
   def new
     @room = Room.find(params[:room_id])
-    @message = Message.new    
+    @message = Message.new
     @messages = @room.messages.includes(:room)
+
   end
 
   def create
