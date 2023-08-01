@@ -37,13 +37,20 @@
       <div class="btnfield">
 <%if  user_signed_in? %>
 <% if @user.liked_by?(current_user) && current_user.liked_by?(@user) %>
+<%if  @user.have_room?(@user,current_user) != nil%>
+<%=link_to "✉", new_room_message_path(@user.have_room?(@user,current_user)),class: "btn" %>
+
+ <% else%>
+
 <div class="buttonNeumorphism">
 <%= form_with model: @room, url:  rooms_path, local: true do |f| %>
     <input name=room[user1_id] type="hidden" value=<%= @user.id %>>
-    <input name=room[user2_id] type="hidden" value=<%= current_user.id %>>
+    <input name=room[user2_id]rails type="hidden" value=<%= current_user.id %>>
     <%= f.submit "✉", class: "btn" %>
     </div>
  <% end%>
+  <% end%>
+
 
 
 

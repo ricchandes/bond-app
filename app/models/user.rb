@@ -23,6 +23,12 @@ class User < ApplicationRecord
     return liked.present?
   end
 
+  def have_room?(user1,user2)
+    room = Room.where("(user1_id = ? AND user2_id = ?) OR (user1_id = ? AND user2_id = ?)", user1.id, user2.id, user2.id, user1.id)
+   return room.first.id
+  end
+
+
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
