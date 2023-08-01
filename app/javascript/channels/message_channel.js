@@ -1,6 +1,9 @@
-import consumer from "channels/consumer"
+import consumer from "./consumer"
 
-consumer.subscriptions.create("MessageChannel", {
+if(location.pathname.match(/\/rooms\/\d+\/messages\/new/)){
+
+
+  consumer.subscriptions.create("MessageChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -10,6 +13,20 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    const html = `
+    <div class="message-box">
+<div class="sendname">${data.name}</div>
+${data.message.created_at}
+<div class="balloon1">
+${data.message.text}
+</div>
+<br/>
+</div>`
+const comments = document.getElementById("messages")
+comments.insertAdjacentHTML('beforeend', html)
+const commentForm = document.getElementById("message-form")
+commentForm.reset();
+
   }
-});
+})
+}

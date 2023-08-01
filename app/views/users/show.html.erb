@@ -38,7 +38,7 @@
 <%if  user_signed_in? %>
 <% if @user.liked_by?(current_user) && current_user.liked_by?(@user) %>
 <%if  @user.have_room?(@user,current_user) != nil%>
-<%=link_to "✉", new_room_message_path(@user.have_room?(@user,current_user)),class: "btn" %>
+<%=link_to "✉", new_room_message_path(@user.have_room?(@user,current_user)), class: "btn",  data: { turbo: false }  %>
  <% else%>
 <div class="buttonNeumorphism">
 <%= form_with model: @room, url:  rooms_path, local: true do |f| %>
