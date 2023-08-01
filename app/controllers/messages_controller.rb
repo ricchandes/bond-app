@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  include MessagesHelper
+  
   def new
     @room = Room.find(params[:room_id])
     @message = Message.new
@@ -7,9 +9,9 @@ class MessagesController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id])
-    @message = Message.create(message_params)
+    @message = Message.new(message_params)
     if @message.save
-      redirect_to new_room_message_path(@room)
+      ActionCable.server.broadcast "message_channel", {message: @message, user: whose_message?(@message)} #追加
     else
       render :new, status: :unprocessable_entity
     end
