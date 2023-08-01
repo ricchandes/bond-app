@@ -6,12 +6,11 @@ class Message < ApplicationRecord
   validates :text, presence: true, unless: :was_attached?
 
   def was_attached?
-    self.image.attached?
+    image.attached?
   end
 
   def whose_message?(message)
     user = User.find(message.user_id)
-    return user.name
+    user.name
   end
-
 end
