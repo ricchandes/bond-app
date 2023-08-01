@@ -1,0 +1,18 @@
+ <div  class="messages">
+ <div class="profile">
+
+</div>
+
+ <div class = "message-site">
+ <%= render partial: "message", collection: @messages %>
+</div>
+
+ <div class="message-form">
+<%= form_with model: @message,url: room_messages_path(@room.id), local: true do |f| %>
+    <%= f.label  "メッセージを送る" %><br />
+    <%= f.text_field :text %>
+    <%= f.submit "🍃" %>
+    <% end %>
+     </div>
+ </div>
+

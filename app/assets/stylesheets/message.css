@@ -1,0 +1,40 @@
+.balloon1{
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+.profile{
+  width: 100px;
+}
+.message-site{
+  width: 70vw;
+
+margin-top: 30px;
+}
+
+.sendname{
+margin-left:10px;
+color: #555;
+}
+
+.message-box{
+  padding: px;
+}
+
+.messages{
+  display: flex;
+  width: 100vw;
+}
+
+.message-form{
+  width: 30vw;
+}
