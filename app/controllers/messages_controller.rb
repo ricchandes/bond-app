@@ -15,6 +15,8 @@ class MessagesController < ApplicationController
      name = whose_message?(@message)
      MessageChannel.broadcast_to @room,  {message: @message, name: name, type: @type}
     else
+      @messages = @room.messages.includes(:room)
+
       render :new, status: :unprocessable_entity
     end
   end
