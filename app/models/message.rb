@@ -9,8 +9,4 @@ class Message < ApplicationRecord
     image.attached?
   end
 
-  def whose_message?(message)
-    user = User.find(message.user_id)
-    user.name
-  end
 end

@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates :age, presence: true
   has_many :like_relationships, class_name: 'Relationship', foreign_key: :like_id
   has_many :likers, through: :like_relationships, source: :liked
-
   has_many :liked_relationships, class_name: 'Relationship', foreign_key: :liked_id
   has_many :likeds, through: :liked_relationships, source: :liker
   has_many :room_users_1, class_name: 'RoomUser', foreign_key: 'user1_id'

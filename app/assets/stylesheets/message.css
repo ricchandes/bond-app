@@ -13,11 +13,12 @@
 }
 
 .profile{
-  width: 100px;
+  height: 100px;
+  margin: 30px 0;
 }
-.message-site{
-  width: 70vw;
 
+.message-site{
+  width: 40vw;
 margin-top: 30px;
 }
 
@@ -27,14 +28,22 @@ color: #555;
 }
 
 .message-box{
-  padding: px;
 }
 
 .messages{
   display: flex;
+  justify-content: space-around;
   width: 100vw;
+
 }
 
 .message-form{
   width: 30vw;
+}
+
+main{
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 50px;
+
 }
