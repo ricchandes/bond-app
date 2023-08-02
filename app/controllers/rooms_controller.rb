@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.create(room_params)
+    
     return unless @room.save
 
     redirect_to new_room_message_path(@room.id)

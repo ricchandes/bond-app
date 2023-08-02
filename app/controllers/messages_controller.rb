@@ -9,16 +9,17 @@ class MessagesController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id])
+    @type = have_relationship?(@room)
     @message = Message.new(message_params)
     if @message.save
      name = whose_message?(@message)
-     MessageChannel.broadcast_to @room,  {message: @message, name: name}
+     MessageChannel.broadcast_to @room,  {message: @message, name: name, type: @type}
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def message_params
-    params.require(:message).permit(:text).merge(user_id: current_user.id, room_id: @room.id)
+    params.require(:message).permit(:text).merge(user_id: current_user.id, room_id: @room.id , type: @type)
   end
 end

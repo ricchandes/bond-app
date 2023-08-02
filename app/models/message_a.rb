@@ -1,0 +1,2 @@
+class MessageA < Message 
+end
