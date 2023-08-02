@@ -15,4 +15,13 @@ module MessagesHelper
       return MessageB
     end
   end
+
+  def for_who(room)
+    person = room.user1_id
+    if person == current_user.id
+      return room.user2_id
+    else
+      return person
+    end
+  end
 end

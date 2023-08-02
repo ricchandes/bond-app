@@ -1,12 +1,10 @@
+<main>
+<%= @user.name %>さんとのルーム<br/>
+<%= image_tag @user.image.variant(resize: '250x250')  %>
  <div  class="messages">
- <div class="profile">
-
-</div>
-
  <div class = "message-site">
  <%= render partial: "message", collection: @messages %>
 </div>
-
  <div class="message-form", id="messages">
 <%= form_with model: @message,url: room_messages_path(@room.id), id: "message-form", local: true do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
@@ -16,4 +14,6 @@
     <% end %>
      </div>
  </div>
+ </main>
+
 

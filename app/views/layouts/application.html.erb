@@ -10,14 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
             <% if user_signed_in? %>
           <div class="user_nav grid-6">
-           <span><div class="name">♡Welcome <%= current_user.name%> ♡</div>
+           <span><div class="name">Welcome <%= current_user.name%>！</div>
             <ul class="user__info">
               <li>
                                               <%= link_to "TOPへ", root_path,class:"link" %>
