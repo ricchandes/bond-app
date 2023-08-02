@@ -15,8 +15,9 @@
 .profile{
   width: 30vw;
   font-size: 15px;
-  font-family: 'Noto Sans JP', sans-serif;
   display: flex;
+  font-family: 'Noto Sans JP', sans-serif;
+
   flex-direction: column;
   justify-content: center;
 
@@ -33,10 +34,11 @@
 .photo{
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 h2{
-  color:brack;
+  color:block;
 }
 .mypage{
   font-size: 20px;

@@ -13,9 +13,11 @@ class MessagesController < ApplicationController
     @type = have_relationship?(@room)
     @message = Message.new(message_params)
     if @message.save
+
      name = whose_message?(@message)
      MessageChannel.broadcast_to @room,  {message: @message, name: name, type: @type}
     else
+      @user = User.find(for_who(@room))
       @messages = @room.messages.includes(:room)
 
       render :new, status: :unprocessable_entity
