@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include UsersHelper
+
 
   def index
     @users = User.all
@@ -11,5 +13,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def random
+    @users = User.all
+    @user = User.find(get_random_user(@users))
+  end
 
 end
