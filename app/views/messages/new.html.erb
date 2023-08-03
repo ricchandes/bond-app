@@ -1,6 +1,10 @@
 <main>
 <%= @user.name %>さんとのルーム<br/>
-<%= image_tag @user.image.variant(resize: '250x250')  %>
+    <% if @user.image.attached?%>
+    <%= image_tag @user.image.variant(resize: '250x250')  %>
+     <%else %>
+    <%= image_tag "dog.png"  %>
+    <%end%>
  <div  class="messages">
  <div class = "message-site">
  <%= render partial: "message", collection: @messages %>
