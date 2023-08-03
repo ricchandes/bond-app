@@ -26,7 +26,7 @@
               <li>
                                               <%= link_to "TOPへ", root_path,class:"link" %>
                 <%= link_to "マイページ", "/users/#{current_user.id}",class:"link" %>
-                <%= link_to "ログアウト", destroy_user_session_path, data: { "turbo-method": :delete }, class: "link" %>
+                <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "link" %>
 
               </li>
             </ul>
