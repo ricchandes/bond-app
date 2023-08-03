@@ -40,13 +40,11 @@
 <%if  @user.have_room?(@user,current_user) != nil%>
 <%=link_to "✉", new_room_message_path(@user.have_room?(@user,current_user)), class: "btn",  data: { turbo: false }  %>
  <% else%>
-<div class="buttonNeumorphism">
-<%= form_with model: @room, url:  rooms_path, local: true do |f| %>
+<%= form_with model: @room, url: rooms_path(@user.id), local: true do |f| %>
     <input name=room[user1_id] type="hidden" value=<%= @user.id %>>
     <input name=room[user2_id] type="hidden" value=<%= current_user.id %>>
-
     <%= f.submit "✉", class: "btn" %>
-    </div>
+    
 <% end%>
 <% end%>
 
@@ -58,10 +56,13 @@
 <%=link_to "💔", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete } %>
 </div>
 <% else %>
-<div class="buttonNeumorphism">
-<%=link_to "💗", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :post } %>
-</div>
+<%= form_with model: @like, url: user_relationships_path(@user.id), local: true do |f| %>
+    <input name=relationship[liked_id] type="hidden" value=<%= @user.id %>>
+    <input name=relationship[like_id] type="hidden" value=<%= current_user.id %>>
+    <%= f.submit "💗", class: "btn" %>
+     <% end%>
+
  <% end%>
- <% end%>
-    
+     <% end%>
+
 </div>
