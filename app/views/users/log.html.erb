@@ -1,3 +1,15 @@
 <div>
+<div class="left">
+    <%=@user.name%> さんへアクション <br/>
+    <div class="action">
+    <% like_you(@user).each do |user|%> 
+    <%= user%>さんにLIKE💗されました<br/>
+    <%end%> 
+        </div>
+        </div>
+
+
+
+
 
 </div>

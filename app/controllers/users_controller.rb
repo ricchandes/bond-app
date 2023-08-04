@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def log
-    
+    @user = User.find(current_user.id)
   end
 
   def random
