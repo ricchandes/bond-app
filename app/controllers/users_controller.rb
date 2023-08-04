@@ -12,13 +12,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit
+  def log
+    
   end
 
   def random
    @users = User.where.not(id: current_user.id).pluck(:id)
    @user =  User.find(get_random_user(@users)) 
   end
+
+
 
   private
   def get_random_user(users)

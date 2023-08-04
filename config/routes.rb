@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out', to: 'devise/sessions#destroy' 
     get '/users/random', to: 'users#random' 
+    get '/users/log', to: 'users#log' 
+
 
   end
   resources :users, only: %i[edit update show] do
+
     resource :relationships, only: %i[create destroy]
   end
 
