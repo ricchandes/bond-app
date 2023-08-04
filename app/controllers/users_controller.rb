@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   include UsersHelper
+  before_action :authenticate_user!, except: [:index, :show]
+
 
 
   def index
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
    @user =  User.find(get_random_user(@users)) 
   end
 
+  private
   def get_random_user(users)
     return nil if users.empty?
     ids_number = users.length
