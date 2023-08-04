@@ -128,7 +128,7 @@ width:100vw;
 .star {
   animation-name: starAnime;/*1で解説*/
   animation-fill-mode:backwards;/*2で解説*/
-  animation-duration:7s;/*3で解説*/
+  animation-duration:10s;/*3で解説*/
   animation-iteration-count:infinite;/*4で解説*/
   animation-timing-function:linear;/*5で解説*/
   animation-delay: 1s;/*6で解説*/
@@ -136,15 +136,23 @@ width:100vw;
   transform:translate(50px,50px);
   color: yellow;
   text-decoration: none;
+  position: absolute;
   }
   
   /*1で解説*/
   @keyframes starAnime{
     0% {
-      transform:translate(50px,50px);
+      transform:translate(0px,0px);
     }
   
     100% {
-      transform:translate(100px,100px);
+      transform:translate(50vw,50vh);
     }
+  }
+
+  .sky{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: relative;
   }

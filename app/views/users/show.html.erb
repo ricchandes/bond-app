@@ -4,7 +4,6 @@
       <h2 class="page-heading">
         <%= "#{@user.name}さんのプロフィール"%>
       </h2>
-            <%=link_to "★", user_relationships_path(@user.id),class: "star", data: { turbo_method: :delete } %>
 
       <div class="profile">
 

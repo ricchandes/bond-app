@@ -21,11 +21,11 @@
   <body>
             <% if user_signed_in? %>
           <div class="user_nav grid-6">
-           <span><div class="name">Welcome <%= current_user.name%>！</div>
+           <span><div class="name">Welcome <%= current_user.name%>さん</div>
             <ul class="user__info">
               <li>
                                               <%= link_to "TOPへ", root_path,class:"link" %>
-                <%= link_to "マイページ", "/users/#{current_user.id}",class:"link" %>
+                <%= link_to "運命の👧",  users_random_path ,class:"link" %>
                 <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "link" %>
 
               </li>
