@@ -162,3 +162,14 @@ width:100vw;
     background-repeat: no-repeat;
     background-size: cover; /* 画像を要素全体に広げます */
   }
+
+  .action{
+    background-color:azure;
+    width: 300px;
+
+  }
+
+  .left{
+    margin-top: 50px;
+margin-left: 100px;
+  }
