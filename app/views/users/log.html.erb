@@ -3,13 +3,14 @@
     <%=@user.name%> さんへアクション <br/>
     <div class="action">
     <% like_you(@user).each do |user|%> 
-    <%= user%>さんにLIKE💗されました<br/>
+    <%= user.name%>さんにLIKE💗されました<br/>
     <%end%> 
-        </div>
-        </div>
 
-
-
+    <% message_you(current_user.id).each do |message|%> 
+     From:<%=whose_message?(message)%>   ✉<%= message.text%><br/>
+    <%end%> 
+    </div>
+    </div>
 
 
 </div>
